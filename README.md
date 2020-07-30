@@ -1,4 +1,5 @@
 # nginx-config with flask
+base on : [DigitalOcean: How To Serve Flask Applications with Gunicorn and Nginx on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04)  
 
 **install additional software packages:**  
 sudo apt update  
@@ -91,7 +92,9 @@ server {
     }
 }
 ```
-remove default link  
+**remove default link:**  
+sudo rm /etc/nginx/sites-enabled/default  
+
 **create symbolic link to enable new configuration file:**  
 sudo ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled  
 
