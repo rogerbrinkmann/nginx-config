@@ -1,0 +1,21 @@
+server {
+    listen 80;
+    # server_name your_domain www.your_domain;
+    server_name ip-address;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/username/myproject/myproject.sock;
+    }
+
+    location /favicon.ico { 
+        root /home/username/myproject/flaskapp/static/media;
+        include /etc/nginx/mime.types; 
+        try_files $uri $uri/ = 404;
+    }
+
+    location /static/ { 
+        root /home/username/myproject/flaskapp;
+        try_files $uri $uri/ =404;
+    }
+}
